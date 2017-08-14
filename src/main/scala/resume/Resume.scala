@@ -21,7 +21,9 @@ object Resume{
         h3(roleText, title),
         div(rightGreyText, loc)
       ),
-      bulletList(bullets:_*)
+      bulletList(bullets:_*),
+      paddingBottom := 5,
+      paddingTop := 5
     )
     def bulletList(bullets: Frag*) = ul(
       listBlock,
@@ -57,11 +59,12 @@ object Resume{
           width := "100%",
             div(
               width := "50%",
-              h1(nameText, "Wang Huafeng")
+              h1(nameText, "王华峰")
             ),
             col(
               width := "50%",
-              div(textAlign.right, greyText, "fvincent@gmail.com"),
+              div(textAlign.right, greyText, "18621585140"),
+              div(textAlign.right, greyText, "unicor_n@163.com"),
               div(
                 textAlign.right,
                 greyText,
@@ -74,86 +77,112 @@ object Resume{
         table(
           width := "100%",
           section(
-            "Work",
+            "工作经历",
             col(
-              row(h2(sectionHeading, "Intel"), logo("Intel.png"), div(rightGreyText, "Shanghai, China")),
+              row(h2(sectionHeading, "英特尔"), logo("Intel.png"), div(rightGreyText, "上海")),
               titledBlock(
-                "Software Engineer, Gearpump", "Sep 2014 - Present",
+                "软件工程师, Smart Storage Management", "2017年4月至今",
                 """
-                Core committer to Gearpump, a lightweight real-time big data streaming engine over Akka.
+                SSM是一个基于HDFS的智能存储管理系统，它能够收集与文件相关的各种Metrics，并根据这些数据以及用户定义的一些规则，
+                自动优化整个文件系统的存储行为。我作为该项目的核心开发人员，完成了多次架构设计的迭代，实现了项目中的数据收集与管理，
+                分布式执行服务等核心功能，搭建了前端界面原型并集成了Travis和Codecov项目管理工具，使得该项目在构建初期能够稳定
+                且快速地开展工作。
+                """,
+                autolink("github.com/Intel-bigdata/SSM")
+              ),
+              titledBlock(
+                "软件工程师, MPICH on Yarn", "2017年2月-2017年3月",
+                """
+                很多相对陈旧的分布式处理应用使用的是MPI(Message-Passing Interface)实现，包括某些深度学习框架，比如Intel-Caffe，
+                且MPICH是MPI标准的一种重要实现。基于上述背景，我独立开发了一个旨在能够让原生MPICH应用直接运行在Yarn上的项目，
+                希望使得原本脱离于大数据集群的应用资源也能被Yarn纳入进来。现该项目已能成功运行MPICH的CPI和Parent and Child两个示例。
+                """,
+                autolink("github.com/huafengw/mpich-on-yarn")
+              ),
+              titledBlock(
+                "软件工程师, HiBench", "2016年6月-2016年9月",
+                """
+                HiBench是Intel开源的一个大数据框架性能测试系统，为了能够覆盖近年来火热的流处理框架，需要为其添加流处理系统的测试模块，
+                我参与设计了该模块的架构以及测试用例，之后对Apache Spark Streaming, Apache Flink, Apache Storm,
+                Apache Gearpump四个框架进行了全面的功能和性能测评，最终完成了一份翔实的测评报告。
+                """,
+                autolink("github.com/intel-hadoop/HiBench"),
+                autolink("www.slideshare.net/HuafengWang/functional-comparison-and-performance-evaluation-of-streaming-frameworks")
+              ),
+              titledBlock(
+                "软件工程师, Apache Gearpump", "2014年7月至今",
+                """
+                Gearpump是Intel开源的一个基于Akka开发的实时流处理平台，我开发了其中的高可用，应用逻辑的动态修改，消息丢失容错，
+                CGroup支持等功能，并数次为该框架进行性能调优，使得框架在基准测试中取得了35%的吞吐量提升以及更低的延迟。
+                Gearpump现已成为Apache基金会孵化器项目。
+                """,
+                autolink("github.com/apache/incubator-gearpump")
+              ),
+              titledBlock(
+                "软件工程师, 开源社区", "2014年7月至今",
+                """
+                参与大数据开源社区的开发工作，为Apache Hadoop, Apache Beam, Apache Flink贡献patch。
                 """
               ),
               titledBlock(
-                "Software Engineer Intern, Intel Hadoop Distribution", "July 2013 - Mar 2014",
+                "软件工程师实习生, 英特尔Hadoop发行版", "2013年7月-2014年4月",
                 """
-                Contributed security features to IDH, which is based on MIT Kerberos
-                """,
-                """
-                Contributed to mapreduce-nativetask, which is a native optimization for MapTask and
-                boosted mapreduce performance up to 30%.
+                NativeTask是Hadoop MapReduce的高效Native执行引擎实现，我实现了NativeTask对Apache Mahout的支持
+                以及Hadoop 2.0版本的升级，并使用HiBench对其进行性能测试，结果显示对比原生MapReduce有30%的性能提升。
+                该模块将于Hadoop 3.0版发布。
                 """
               )
             )
         ),
         section(
-          "Buzzwords",
+          "技能",
           h3(roleText,
             bulletList(
               Seq(
-                "Scala",
-                "Javascript",
                 "Java",
+                "Scala",
+                "C/C++",
                 "Shell",
+                "Javascript",
                 "SQL"
               ).mkString(" - "),
               Seq(
+                "Apache Hadoop",
                 "Akka",
-                "Storm",
-                "Kafka",
-                "Hadoop"
+                "Apache Kafka",
+                "Apache Storm"
               ).mkString(" - ")
             )
           )
         ),
         section(
-          "Education",
+          "教育经历",
           col(
             div(
               row(
-                h2(sectionHeading, "Nanjing University"),
+                h2(sectionHeading, "南京大学"),
                 // Override height to compensate for non-square image
                 logo("NJU.png")(height := 12, paddingTop := 4),
-                div(rightGreyText, "Jiangsu, China")
+                div(rightGreyText, "江苏")
               ),
               titledBlock(
-                "Undergraduate Software Engineering", "Sep 2010 - Jun 2014"
+                "软件工程本科, GPA 4.35/5", "2010年9月-2014年6月"
               )
             )
           )
         ),
         section(
-          "Reference",
+          "参考",
           col(
             div(
-              row(h2(sectionHeading, "Projects"), logo("Github.png")),
-//              div(listBlock,
-//                p(para,
-//                  "Other cool projects i've worked on that are worth checking out!"
-//                )
-//              ),
+              row(h2(sectionHeading, "演讲"), logo("GoogleSlides.png")),
               titledBlock(
-                "Gearpump", "Sep 2014 - Present",
-                """
-                Gearpump is a lightweight real-time big data streaming engine over Akka
-                """,
-                autolink("https://github.com/gearpump/gearpump")
+                "Apache Gearpump: Next-Gen Streaming Engine", "Apache Big Data Europe 2016",
+                autolink("http://sched.co/8U02")
               ),
               titledBlock(
-                "NativeTask",
-                """
-                A native optimization for MapTask in Hadoop MapReduce framework based on JNI.
-                """,
-                autolink("https://issues.apache.org/jira/browse/MAPREDUCE-2841")
+                "Streaming Report: Functional Comparison and Performance Evaluation", "Apache Big Data Europe 2016",
+                autolink("http://sched.co/8U05")
               )
             )
           )
