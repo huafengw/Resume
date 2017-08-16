@@ -59,7 +59,7 @@ object Resume{
           width := "100%",
             div(
               width := "50%",
-              h1(nameText, "王华峰")
+              h1(nameText, "Wang Huafeng")
             ),
             col(
               width := "50%",
@@ -77,65 +77,73 @@ object Resume{
         table(
           width := "100%",
           section(
-            "工作经历",
+            "Work",
             col(
-              row(h2(sectionHeading, "英特尔"), logo("Intel.png"), div(rightGreyText, "上海")),
+              row(h2(sectionHeading, "Intel"), logo("Intel.png"), div(rightGreyText, "Shanghai")),
               titledBlock(
-                "软件工程师, Smart Storage Management", "2017年4月至今",
+                "Software Engineer, Smart Storage Management", "April 2017 - Present",
                 """
-                SSM是一个基于HDFS的智能存储管理系统，它能够收集与文件相关的各种Metrics，并根据这些数据以及用户定义的一些规则，
-                自动优化整个文件系统的存储行为。我作为该项目的核心开发人员，完成了多次架构设计的迭代，实现了项目中的数据收集与管理，
-                分布式执行服务等核心功能，搭建了前端界面原型并集成了Travis和Codecov项目管理工具，使得该项目在构建初期能够稳定
-                且快速地开展工作。
+                SSM is a storage management system built on top of Apache HDFS. It collects file related metrics and
+                automatically optimizes HDFS storage policies based on these metrics data along with user's pre-defined rules.
+                As a core contributor, I participated in multiple rounds of project architecture design, implemented
+                the data-collecting, data-maintenance, distributed execution service and other core features, built
+                the dashboard prototype, integrated Travis and Codecov to the project.
                 """,
                 autolink("github.com/Intel-bigdata/SSM")
               ),
               titledBlock(
-                "软件工程师, MPICH on Yarn", "2017年2月-2017年3月",
+                "Software Engineer, MPICH on Yarn", "Feb 2017 - Mar 2017",
                 """
-                很多相对陈旧的分布式处理应用使用的是MPI(Message-Passing Interface)实现，包括某些深度学习框架，比如Intel-Caffe，
-                且MPICH是MPI标准的一种重要实现。基于上述背景，我独立开发了一个旨在能够让原生MPICH应用直接运行在Yarn上的项目，
-                希望使得原本脱离于大数据集群的应用资源也能被Yarn纳入进来。现该项目已能成功运行MPICH的CPI和Parent and Child两个示例。
+                MPICH is a high performance and widely portable implementation of the Message Passing Interface (MPI) standard.
+                Some deep learning frameworks, such as Intel-Caffe, use MPICH as their underlying communication framework.
+                To bring these frameworks into Hadoop world and leverage Yarn's resource management, I built a prototype that
+                can run MPICH applications on Yarn by myself. Now the two examples of MPICH, CPI and Parent & Child, can
+                run on Yarn successfully.
                 """,
                 autolink("github.com/huafengw/mpich-on-yarn")
               ),
               titledBlock(
-                "软件工程师, HiBench", "2016年6月-2016年9月",
+                "Software Engineer, HiBench", "Jun 2016 - Sep 2016",
                 """
-                HiBench是Intel开源的一个大数据框架性能测试系统，为了能够覆盖近年来火热的流处理框架，需要为其添加流处理系统的测试模块，
-                我参与设计了该模块的架构以及测试用例，之后对Apache Spark Streaming, Apache Flink, Apache Storm,
-                Apache Gearpump四个框架进行了全面的功能和性能测评，最终完成了一份翔实的测评报告。
+                HiBench is a big data benchmark suite that helps evaluate different big data frameworks' performance.
+                To cover the vigorous streaming processing frameworks, we developed a streaming module in HiBench and
+                use it to evaluated 4 frameworks, including Apache Spark Streaming, Apache Flink, Apache Storm and
+                Apache Gearpump. Finally we composed a detailed functional comparison and performance evaluation report
+                to summarize our work.
                 """,
                 autolink("github.com/intel-hadoop/HiBench"),
                 autolink("www.slideshare.net/HuafengWang/functional-comparison-and-performance-evaluation-of-streaming-frameworks")
               ),
               titledBlock(
-                "软件工程师, Apache Gearpump", "2014年7月至今",
+                "Software Engineer, Apache Gearpump", "July 2014 - Present",
                 """
-                Gearpump是Intel开源的一个基于Akka开发的实时流处理平台，我开发了其中的高可用，应用逻辑的动态修改，消息丢失容错，
-                CGroup支持等功能，并数次为该框架进行性能调优，使得框架在基准测试中取得了35%的吞吐量提升以及更低的延迟。
-                Gearpump现已成为Apache基金会孵化器项目。
+                Gearpump is an Intel open sourced lightweight real-time big data streaming engine built on top of Akka.
+                I contributed high availability, dynamic DAG, message loss detection and recovery, CGroup support and other
+                core features to Gearpump. I also performed several rounds of performance tuning of Gearpump, optimized
+                critical hotspot functions and stabilized the JVM’s GC behavior which brought about 35% performance improvement
+                against the initial result. Currently, Gearpump is an incubating project under Apache Software Foundation.
                 """,
                 autolink("github.com/apache/incubator-gearpump")
               ),
               titledBlock(
-                "软件工程师, 开源社区", "2014年7月至今",
+                "Software Engineer, Open Source", "July 2014 - Present",
                 """
-                参与大数据开源社区的开发工作，为Apache Hadoop, Apache Beam, Apache Flink贡献patch。
+                Work in open source community. Contributed patches to Apache Hadoop, Apache Beam, Apache Flink.
                 """
               ),
               titledBlock(
-                "软件工程师实习生, 英特尔Hadoop发行版", "2013年7月-2014年4月",
+                "Software Engineer Intern, Intel Hadoop Distribution", "July 2013 - April 2014",
                 """
-                NativeTask是Hadoop MapReduce的高效Native执行引擎实现，我实现了NativeTask对Apache Mahout的支持
-                以及Hadoop 2.0版本的升级，并使用HiBench对其进行性能测试，结果显示对比原生MapReduce有30%的性能提升。
-                该模块将于Hadoop 3.0版发布。
+                NativeTask is a high-performance C++ API & runtime for Hadoop MapReduce, I contributed its support for
+                Apache Mahout and Hadoop 2.0 version, and evaluated its performance improvement using HiBench.
+                The final result shows 30% boost up compared with the original MapReduce implementation. NativeTask
+                will be released in Hadoop 3.0.
                 """
               )
             )
         ),
         section(
-          "技能",
+          "Skills",
           h3(roleText,
             bulletList(
               Seq(
@@ -156,26 +164,26 @@ object Resume{
           )
         ),
         section(
-          "教育经历",
+          "Education",
           col(
             div(
               row(
-                h2(sectionHeading, "南京大学"),
+                h2(sectionHeading, "Nanjing University"),
                 // Override height to compensate for non-square image
                 logo("NJU.png")(height := 12, paddingTop := 4),
-                div(rightGreyText, "江苏")
+                div(rightGreyText, "Nanjing Jiangsu")
               ),
               titledBlock(
-                "软件工程本科, GPA 4.35/5", "2010年9月-2014年6月"
+                "Undergraduate Software Engineering, GPA 4.35/5", "Sep 2010 - Jun 2014"
               )
             )
           )
         ),
         section(
-          "参考",
+          "Reference",
           col(
             div(
-              row(h2(sectionHeading, "演讲"), logo("GoogleSlides.png")),
+              row(h2(sectionHeading, "Speech"), logo("GoogleSlides.png")),
               titledBlock(
                 "Apache Gearpump: Next-Gen Streaming Engine", "Apache Big Data Europe 2016",
                 autolink("http://sched.co/8U02")
